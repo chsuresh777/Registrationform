@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      list-style: none;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(105deg, #88beee, #0a2e73);
+    }
+
+    .wrapper {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .registration_form {
+      background: white;
+      padding: 25px;
+      border-radius: 5px;
+      width: 400px;
+    }
+
+    .registration_form .title {
+      text-align: center;
+      font-size: 25px;
+      text-transform: uppercase;
+      color: white;
+      background: rgb(13, 98, 215);
+      letter-spacing: 2px;
+      font-weight: 700;
+      margin-top: -25px;
+      margin-left: -25px;
+      margin-right: -25px;
+      padding: 10px;
+    }
+
+    .form_wrap {
+      margin-top: 35px;
+    }
+
+    .form_wrap .input_wrap {
+      margin-bottom: 15px;
+    }
+
+    .form_wrap .input_wrap:last-child {
+      margin-bottom: 0;
+    }
+
+    .form_wrap .input_wrap label {
+      display: block;
+      margin-bottom: 3px;
+      color: #1a1a1f;
+    }
+
+    .form_wrap .input_grp {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .form_wrap .input_grp input[type="text"] {
+      width: 165px;
+    }
+
+    .form_wrap input[type="text"],
+    .form_wrap input[type="email"] {
+      width: 100%;
+      border-radius: 3px;
+      border: 1.3px solid #9597a6;
+      padding: 10px;
+      outline: none;
+    }
+
+    .form_wrap input:focus {
+      border-color: #063abd;
+    }
+
+    .form_wrap ul {
+      border: 1px solid rgb(115, 185, 235);
+      width: 70%;
+      background: rgb(206, 238, 242);
+      margin-left: 15%;
+      padding: 8px 10px;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .form_wrap ul li:first-child {
+      margin-right: 15px;
+    }
+
+    .form_wrap ul .radio_wrap {
+      position: relative;
+      margin-bottom: 0;
+    }
+
+    .form_wrap ul .radio_wrap .input_radio {
+      position: absolute;
+      top: 0;
+      right: 0;
+      opacity: 0;
+    }
+
+    .form_wrap ul .radio_wrap span {
+      display: inline-block;
+      font-size: 17px;
+      padding: 3px 15px;
+      border-radius: 15px;
+      color: #101749;
+    }
+
+    .form_wrap .input_radio:checked ~ span {
+      background: #105ce2;
+      color: white;
+    }
+
+    .form_wrap .submit_btn {
+      width: 100%;
+      background: #0d6ad7;
+      padding: 10px;
+      border: 0;
+      color: white;
+      font-size: 17px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      cursor: pointer;
+    }
+
+    .form_wrap .submit_btn:hover {
+      background: #051c94;
+    }
+
+    .error {
+      color: red;
+      font-size: 13px;
+      margin-top: 3px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="registration_form">
+      <div class="title">Registration Form</div>
+
+      <form id="regForm">
+        <div class="form_wrap">
+          <div class="input_grp">
+            <div class="input_wrap">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname">
+              <p class="error" id="fnameError"></p>
+            </div>
+            <div class="input_wrap">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname">
+              <p class="error" id="lnameError"></p>
+            </div>
+          </div>
+
+          <div class="input_wrap">
+            <label for="email">Email Address</label>
+            <input type="email" id="email">
+            <p class="error" id="emailError"></p>
+          </div>
+
+          <div class="input_wrap">
+            <label for="city">City</label>
+            <input type="text" id="city">
+            <p class="error" id="cityError"></p>
+          </div>
+
+          <div class="input_wrap">
+            <label for="country">Country</label>
+            <input type="text" id="country">
+            <p class="error" id="countryError"></p>
+          </div>
+
+          <div class="input_wrap">
+            <label>Gender</label>
+            <ul>
+              <li>
+                <label class="radio_wrap">
+                  <input type="radio" name="gender" value="Male" class="input_radio" checked>
+                  <span>Male</span>
+                </label>
+              </li>
+              <li>
+                <label class="radio_wrap">
+                  <input type="radio" name="gender" value="Female" class="input_radio">
+                  <span>Female</span>
+                </label>
+              </li>
+            </ul>
+          </div>
+
+          <div class="input_wrap">
+            <input type="submit" value="Register Now" class="submit_btn">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("regForm");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault(); // prevent form from refreshing page
+
+      // Clear previous errors
+      document.querySelectorAll(".error").forEach(err => err.textContent = "");
+
+      // Get form values
+      const fname = document.getElementById("fname").value.trim();
+      const lname = document.getElementById("lname").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const city = document.getElementById("city").value.trim();
+      const country = document.getElementById("country").value.trim();
+      const gender = document.querySelector("input[name='gender']:checked").value;
+
+      let valid = true;
+
+      // Validation rules
+      if (fname === "") {
+        document.getElementById("fnameError").textContent = "First name is required.";
+        valid = false;
+      }
+      if (lname === "") {
+        document.getElementById("lnameError").textContent = "Last name is required.";
+        valid = false;
+      }
+      if (email === "") {
+        document.getElementById("emailError").textContent = "Email is required.";
+        valid = false;
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        document.getElementById("emailError").textContent = "Enter a valid email address.";
+        valid = false;
+      }
+      if (city === "") {
+        document.getElementById("cityError").textContent = "City is required.";
+        valid = false;
+      }
+      if (country === "") {
+        document.getElementById("countryError").textContent = "Country is required.";
+        valid = false;
+      }
+
+      if (!valid) return;
+
+      // Save data to localStorage
+      const userData = { fname, lname, email, city, country, gender };
+      localStorage.setItem("registrationData", JSON.stringify(userData));
+
+      alert(`🎉 Registration Successful!\nWelcome ${fname} ${lname}!`);
+
+      form.reset();
+    });
+  </script>
+</body>
+</html>
