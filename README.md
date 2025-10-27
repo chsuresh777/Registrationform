@@ -22,7 +22,7 @@ This project demonstrates client-side form validation, error handling, and data 
 ---
 
 ## 📸 Screenshot
-<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/57ce79d1-f902-4ea9-8024-bc3044957313" />
+<img width="1760" height="986" alt="formScreenshot " src="https://github.com/user-attachments/assets/d28bc875-7bf7-4b01-9d18-e05a24891ad9" />
 
 
 ---
